@@ -116,7 +116,7 @@ class Board
 
 public:
     Board();
-    Board(const json &positions);
+    Board(json positions);
     ~Board();
     Board(const Board &b);
     void operator=(const Board &b);

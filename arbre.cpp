@@ -4,7 +4,6 @@
 #include <algorithm>
 #include "tools.h"
 
-
 //===========================Move's Methods==========================
 
 Move::Move(const Move &m)
@@ -382,10 +381,9 @@ Board::Board()
     }
 }
 
-Board::Board(const json &positions)
+Board::Board(json positions)
 {
-    json array = positions["positions"];
-    for (json::iterator it = array.begin(); it != array.end(); ++it)
+    for (json::iterator it = positions.begin(); it != positions.end(); ++it)
     {
         if ((*it)["type"] == "man")
         {
