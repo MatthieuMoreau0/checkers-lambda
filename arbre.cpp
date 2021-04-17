@@ -396,6 +396,23 @@ Board::Board(json positions)
     }
 }
 
+void to_json(json &j, const Piece &p)
+{
+    j = json{{"position", p.getPosition()}, {"color", p.Color()}, {"type", p.isMan() ? "man" : "king"}};
+}
+
+json Board::getPositions() const
+{
+    json positions;
+    for (int i = 0; i < pieces.size(); i++)
+    {
+        json piece;
+        to_json(piece, *(pieces[i]));
+        positions.push_back(piece);
+    }
+    return positions;
+}
+
 Board::~Board()
 {
     for (vector<Piece *>::iterator it = pieces.begin(); it != pieces.end(); it++)
@@ -609,6 +626,7 @@ map<int, vector<Move>> Board::playableMoves(string color)
         if (pieces[i]->Color() == color)
         {
             pieces[i]->select(*this, possibleMoves);
+
             if (possibleMoves.size() > 0)
             {
                 maxKills = max(maxKills, possibleMoves[possibleMoves.size() - 1].getKills()); // A Optimiser

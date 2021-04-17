@@ -1,5 +1,6 @@
 #include "arbre.h"
 #include <string>
+#include <fstream>
 #include "nlohmann/json.hpp"
 
 // for convenience
@@ -21,12 +22,23 @@ void to_json(json &j, const std::map<int, std::vector<Move>> &map)
         j.emplace(std::to_string(key), value);
     }
 }
+
 int main(int argc, char *argv[])
 {
     json request_data;
+
     try
     {
-        request_data = json::parse(argv[1]);
+        if (argc < 2)
+        {
+            // The setup of json args in vscode launch.json is a massive pain (because of automatic quote escaping), so I use this case to debug the program, replace example_args.json with wanted values
+            std::ifstream i("example_args.json");
+            i >> request_data;
+        }
+        else
+        {
+            request_data = json::parse(argv[1]);
+        }
     }
     catch (json::exception &e)
     {
@@ -34,9 +46,13 @@ int main(int argc, char *argv[])
     }
 
     Board B(request_data["positions"]);
+    Move move(request_data["move"]["path"], request_data["move"]["kills"]);
+    B.playMove(move, false);
     map<int, vector<Move>> currentPlayableMove = B.playableMoves(request_data["color"]);
-    json playableMovesJson(currentPlayableMove);
 
-    std::cout << playableMovesJson.dump() << std::endl;
+    json response;
+    response.emplace("playableMoves", currentPlayableMove);
+    response.emplace("positions", B.getPositions());
+    std::cout << response.dump() << std::endl;
     return 0;
 }

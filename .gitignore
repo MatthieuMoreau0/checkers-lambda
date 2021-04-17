@@ -2,3 +2,4 @@ build/
 CmakeLists.txt.user
 .vscode
 */__pycache__/
+*.exe

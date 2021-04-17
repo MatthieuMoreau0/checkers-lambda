@@ -1,4 +1,9 @@
 {
+  "move": {
+    "kills": 0,
+    "path": [30, 26]
+  },
+  "color": "black",
   "positions": [
     {
       "position": 0,
@@ -98,6 +103,106 @@
     {
       "position": 19,
       "color": "black",
+      "type": "man"
+    },
+    {
+      "position": 30,
+      "color": "white",
+      "type": "man"
+    },
+    {
+      "position": 31,
+      "color": "white",
+      "type": "man"
+    },
+    {
+      "position": 32,
+      "color": "white",
+      "type": "man"
+    },
+    {
+      "position": 33,
+      "color": "white",
+      "type": "man"
+    },
+    {
+      "position": 34,
+      "color": "white",
+      "type": "man"
+    },
+    {
+      "position": 35,
+      "color": "white",
+      "type": "man"
+    },
+    {
+      "position": 36,
+      "color": "white",
+      "type": "man"
+    },
+    {
+      "position": 37,
+      "color": "white",
+      "type": "man"
+    },
+    {
+      "position": 38,
+      "color": "white",
+      "type": "man"
+    },
+    {
+      "position": 39,
+      "color": "white",
+      "type": "man"
+    },
+    {
+      "position": 40,
+      "color": "white",
+      "type": "man"
+    },
+    {
+      "position": 41,
+      "color": "white",
+      "type": "man"
+    },
+    {
+      "position": 42,
+      "color": "white",
+      "type": "man"
+    },
+    {
+      "position": 43,
+      "color": "white",
+      "type": "man"
+    },
+    {
+      "position": 44,
+      "color": "white",
+      "type": "man"
+    },
+    {
+      "position": 45,
+      "color": "white",
+      "type": "man"
+    },
+    {
+      "position": 46,
+      "color": "white",
+      "type": "man"
+    },
+    {
+      "position": 47,
+      "color": "white",
+      "type": "man"
+    },
+    {
+      "position": 48,
+      "color": "white",
+      "type": "man"
+    },
+    {
+      "position": 49,
+      "color": "white",
       "type": "man"
     }
   ]

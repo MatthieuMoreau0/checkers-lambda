@@ -53,9 +53,9 @@ public:
         position = p.position;
         color = p.color;
     }
-    int getPosition() { return position; }
+    int getPosition() const { return position; }
     void setPosition(int pos) { position = pos; }
-    std::string Color() { return color; }
+    std::string Color() const { return color; }
     virtual bool isMan() const = 0;
     virtual bool isKing() const { return !isMan(); }
     virtual void killFreeMove(Board &B, vector<Move> &possibleMoves) = 0;
@@ -119,6 +119,7 @@ public:
     Board(json positions);
     ~Board();
     Board(const Board &b);
+    json getPositions() const;
     void operator=(const Board &b);
     int index_man_here(int pos);
     bool isManHere(int pos);
